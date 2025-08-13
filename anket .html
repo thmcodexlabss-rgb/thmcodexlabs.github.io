@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>THM CodeX Labs | Anket</title>
+  <link rel="icon" type="image/png" href="png.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+  font-style: normal;
+     
+      color: #fff;
+      overflow: hidden;
+    
+    }
+
+    .stars {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: transparent url('https://raw.githubusercontent.com/VincentGarreau/particles.js/master/demo/media/star.png') repeat top center;
+      animation: stars 100s linear infinite;
+      z-index: -1;
+      
+    }
+
+    @keyframes stars {
+      0% {
+        background-position: 0 0;
+      }
+
+      100% {
+        background-position: 10000px 10000px;
+      }
+    }
+
+    .quiz-container {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      padding: 30px;
+      width: 90%;
+      max-width: 500px;
+      margin: 100px auto;
+      backdrop-filter: blur(10px);
+      animation: fadeIn 0.8s ease;
+      
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .logo {
+      text-align: center;
+      font-size: 28px;
+      margin-top: 40px;
+      font-weight: bold;
+     font-family: 'Press Start 2P', monospace;
+      color: #ffffff;
+     
+      
+    
+    }
+
+    h2 {
+      font-size: 22px;
+      margin: 20px 0;
+      color: #fff;
+      text-align: center;
+      
+    }
+
+    .option {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 15px;
+      border-radius: 12px;
+      margin: 10px 0;
+      cursor: pointer;
+      transition: 0.3s;
+      text-align: center;
+    }
+
+    .option:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.02);
+    }
+
+    .option.selected {
+      background-color: #3b82f6;
+      color: white;
+      font-weight: bold;
+    }
+
+    .progress {
+      text-align: center;
+      margin-bottom: 15px;
+      color: #ccc;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      resize: none;
+      min-height: 100px;
+      font-family: inherit;
+      
+    }
+
+    button {
+      padding: 12px 20px;
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #2563eb;
+    }
+
+    .thanks {
+      text-align: center;
+      font-size: 20px;
+      color: #d1fae5;
+      padding: 30px;
+       
+    }
+    /* arka resim sabit kalsın diye */
+.grid-background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background: #000000;
+
+  --gap: 5em;
+  --line: 1px;
+  --color: rgba(255, 255, 255, 0.15);
+
+  background-image:
+    linear-gradient(
+      -90deg,
+      transparent calc(var(--gap) - var(--line)),
+      var(--color) calc(var(--gap) - var(--line)),
+      var(--color) var(--gap)
+    ),
+    linear-gradient(
+      0deg,
+      transparent calc(var(--gap) - var(--line)),
+      var(--color) calc(var(--gap) - var(--line)),
+      var(--color) var(--gap)
+    );
+
+  background-size: var(--gap) var(--gap);
+  animation: moveGrid 10s linear infinite;
+}
+
+/* Animasyon: arka planın sürekli kaymasını sağlar */
+@keyframes moveGrid {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: var(--gap) var(--gap);
+  }
+}
+
+.logo a img {
+  display: inline-block;
+  height: 50px;
+  object-fit: contain;
+  user-select: none;
+}
+
+  </style>
+</head>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+<body>
+<div class="logo">
+<a href="taha.html" target="_blank" rel="noopener noreferrer" aria-label="THM CodeX Labs Ana Sayfa">
+  <img src="logo vektör PNG.png" alt="THM CodeX Labs Logo" style="height: 50px;">
+</a>
+
+</div>
+
+  <div class="grid-background"></div>
+  <div class="stars"></div>
+
+  <div class="logo" >THM CodeX Labs</div>
+
+  <div class="quiz-container" id="quiz">
+    <div class="progress" id="progress">Soru 1 / 5</div>
+    <h2 id="question">Soru yükleniyor...</h2>
+    <div id="options"></div>
+    
+  </div>
+
+  <script>
+    const quizData = [
+      {
+        question: "Hangi alan sizi daha çok ilgilendiriyor?",
+        options: ["Web Geliştirme", "Mobil Uygulama", "Grafik Tasarım"]
+      },
+      {
+        question: "Hangisi sizin için daha önemli?",
+        options: ["Yaratıcılık", "Verimlilik", "Takım Çalışması", "Bağımsızlık"]
+      },
+      {
+        question: "Hangi platformda çalışmayı tercih edersiniz?",
+        options: ["PC", "Mobil", "Web", "Tümü"]
+      },
+      {
+        question: "Bir projede en önemli gördüğünüz şey nedir?",
+        options: ["Hız", "Görsel Tasarım", "Fonksiyonellik", "Kullanıcı Deneyimi"]
+      },
+        {
+        question: "Sizin Görüşünüz Bizim İçin Önemli!",
+        options: ["İleri"]
+      },
+     
+    ];
+
+    let current = 0;
+    const answers = [];
+    const quiz = document.getElementById("quiz");
+    const questionEl = document.getElementById("question");
+    const optionsEl = document.getElementById("options");
+    const progressEl = document.getElementById("progress");
+
+    function loadQuestion() {
+      const q = quizData[current];
+      questionEl.textContent = q.question;
+      progressEl.textContent = `Soru ${current + 1} / ${quizData.length}`;
+      optionsEl.innerHTML = "";
+
+      q.options.forEach(option => {
+        const div = document.createElement("div");
+        div.className = "option";
+        div.textContent = option;
+        div.onclick = () => {
+          answers.push(option);
+          current++;
+          if (current < quizData.length) {
+            loadQuestion();
+          } else {
+            showTextArea();
+          }
+        };
+        optionsEl.appendChild(div);
+      });
+    }
+
+    function showTextArea() {
+      questionEl.textContent = "Eklemek istediğiniz bir yorum varsa yazabilirsiniz:";
+      progressEl.textContent = "Son Aşama";
+      optionsEl.innerHTML = `
+        <textarea placeholder="Yorumunuzu buraya yazabilirsiniz..."></textarea>
+        <button onclick="submitQuiz()">Gönder</button>
+      `;
+    }
+
+    function submitQuiz() {
+      const yorum = document.querySelector("textarea").value;
+      answers.push("Yorum: " + yorum);
+
+      fetch("https://formspree.io/f/xblonrga", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ cevaplar: answers })
+      });
+
+      quiz.innerHTML = `
+        <div class="thanks">
+          <i class="fas fa-check-circle fa-3x" style="color:#4ade80;"></i>
+          <p>Teşekkürler! Cevaplarınız başarıyla alındı.</p>
+        </div>
+      `;
+    }
+
+    loadQuestion();
+  </script>
+</body>
+
+</html>
