@@ -283,6 +283,7 @@ window.addEventListener("resize", () => {
     overlay.style.display = "none";
   }
 });
+// Accordion butonları için toggle fonksiyonu
 document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelector(".thm-cards");
   const accordion = document.querySelector(".accordion-container");
@@ -318,7 +319,3 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("load", updateView);
   window.addEventListener("resize", updateView);
 });
-
-
-
-
