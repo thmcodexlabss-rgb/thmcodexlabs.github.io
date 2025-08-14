@@ -754,7 +754,8 @@ body.thm-body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
-  margin-top: 750px; /* İstersen kaldırabilir veya değiştirebilirsin */
+  margin-top: 750px;
+  /* İstersen kaldırabilir veya değiştirebilirsin */
 }
 
 #thm-neler-yapabiliriz {
@@ -890,7 +891,8 @@ button.thm-button:hover::before {
 /* --- MOBİLDE ACORDİON GÖSTER, KARTLARI GİZLE --- */
 @media (max-width: 768px) {
   .thm-cards {
-    display: none; /* Kartlar gizlenir */
+    display: none;
+    /* Kartlar gizlenir */
   }
 
   .accordion-container {
@@ -958,12 +960,14 @@ button.thm-button:hover::before {
 
 /* --- MASAÜSTÜ VE BÜYÜK EKRANLAR İÇİN KART GÖRÜNÜR --- */
 @media (min-width: 769px) {
+
   /* Başlığı ortala */
   #thm-neler-yapabiliriz.thm-section-title {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    display: block; /* Eğer inline-block ise, block yap */
+    display: block;
+    /* Eğer inline-block ise, block yap */
   }
 }
 
@@ -986,14 +990,17 @@ button.thm-button:hover::before {
   }
 
   .thm-cards {
-    grid-template-columns: 1fr; /* Tek sütun */
+    grid-template-columns: 1fr;
+    /* Tek sütun */
     gap: 15px;
   }
 
   .thm-card {
     padding: 20px 15px 30px;
-    max-height: 400px; /* Maksimum yükseklik */
-    overflow-y: auto;  /* Taşarsa kaydır */
+    max-height: 400px;
+    /* Maksimum yükseklik */
+    overflow-y: auto;
+    /* Taşarsa kaydır */
   }
 
   .thm-card-title {
@@ -1026,13 +1033,15 @@ button.thm-button:hover::before {
   }
 
   .thm-cards {
-    grid-template-columns: 1fr; /* Tek sütun */
+    grid-template-columns: 1fr;
+    /* Tek sütun */
     gap: 18px;
   }
 
   .thm-card {
     padding: 20px 15px 35px;
-    max-height: 420px; /* Biraz daha yüksek */
+    max-height: 420px;
+    /* Biraz daha yüksek */
     overflow-y: auto;
   }
 
@@ -1703,7 +1712,7 @@ button.thm-button:hover::before {
 
 
 
- /* Biz kimiz */
+/* Biz kimiz */
 /* Biz Kimiz - Başlık */
 /* Biz Kimiz - Başlık */
 h1 {
@@ -1785,7 +1794,8 @@ h2.section-title {
   .team-container {
     display: flex;
     flex-direction: column;
-    align-items: center;  /* Kartları yatayda ortala */
+    align-items: center;
+    /* Kartları yatayda ortala */
     gap: 20px;
     padding: 0 16px;
     margin-top: 40px;
@@ -1793,7 +1803,8 @@ h2.section-title {
 
   .card {
     width: 100%;
-    max-width: 420px;     /* Mobilde genişlik sınırı */
+    max-width: 420px;
+    /* Mobilde genişlik sınırı */
     box-sizing: border-box;
     margin: 0 auto;
     flex-basis: auto;
@@ -1852,7 +1863,7 @@ h2.section-title {
   max-width: 1100px;
   margin: 80px auto;
   padding: 40px 30px;
- 
+
   border-radius: 20px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
   gap: 60px;
@@ -1877,7 +1888,7 @@ h2.section-title {
   letter-spacing: 1.2px;
   position: relative;
   padding-bottom: 12px;
-   font-family: 'Press Start 2P', monospace;
+  font-family: 'Press Start 2P', monospace;
 }
 
 .about-text h2::after {
@@ -1887,7 +1898,7 @@ h2.section-title {
   left: 0;
   width: 70px;
   height: 5px;
- 
+
   border-radius: 3px;
 }
 
@@ -1911,7 +1922,7 @@ h2.section-title {
   width: 100%;
   max-width: 320px;
   border-radius: 18px;
- 
+
   transition: transform 0.3s ease;
   object-fit: contain;
 }
@@ -1962,7 +1973,8 @@ h2.section-title {
 /* ===================== */
 .programs-section {
   max-width: 1100px;
-  margin: 200px auto; /* üstten ve alttan dengeli boşluk */
+  margin: 200px auto;
+  /* üstten ve alttan dengeli boşluk */
   padding: 0 20px;
   color: #ffffff;
   margin-top: 200px;
@@ -1972,11 +1984,12 @@ h2.section-title {
 /* Kullandığımız Programlar başlığı */
 /* ===================== */
 .pixsel {
-   font-family: 'Press Start 2P', monospace;
+  font-family: 'Press Start 2P', monospace;
   font-size: 2rem;
   font-weight: 600;
   text-align: center;
-  margin-top: 20px;  /* bölüme yakın */
+  margin-top: 20px;
+  /* bölüme yakın */
   margin-bottom: 30px;
   color: #ffffff;
   letter-spacing: 1px;
@@ -2039,7 +2052,7 @@ h2.section-title {
 .program-card {
   background-color: #333333;
   border-radius: 12px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.7);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.7);
   padding: 20px 15px;
   text-align: center;
   cursor: default;
@@ -2144,7 +2157,7 @@ h2.section-title {
   max-width: 1100px;
   margin: 0 auto 100px auto;
   border-radius: 15px;
- 
+
 }
 
 .contact-animated-wrapper {
@@ -2261,7 +2274,8 @@ h2.section-title {
 
 /* Toast Mesaj */
 .toast-message {
-  display: none; /* Varsayılan gizli */
+  display: none;
+  /* Varsayılan gizli */
   position: fixed;
   bottom: 30px;
   right: 30px;
@@ -2269,7 +2283,7 @@ h2.section-title {
   color: #000;
   padding: 15px 25px;
   border-radius: 30px;
-  box-shadow: 0 0 10px rgba(102,255,102,0.7);
+  box-shadow: 0 0 10px rgba(102, 255, 102, 0.7);
   font-weight: 600;
   user-select: none;
   align-items: center;
@@ -2365,7 +2379,7 @@ h2.section-title {
 .footer-about h3 {
   font-size: 1.8rem;
   margin-bottom: 12px;
-   font-family: 'Press Start 2P', monospace;
+  font-family: 'Press Start 2P', monospace;
 }
 
 .footer-links h4,
@@ -2420,8 +2434,8 @@ h2.section-title {
   justify-content: center;
   align-items: center;
   cursor: pointer;
- 
- 
+
+
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   color: white;
   border: none;
@@ -2432,7 +2446,7 @@ h2.section-title {
 .icon-wrapper:hover,
 .icon-wrapper:focus {
   transform: translateY(-8px) scale(1.15);
- 
+
 }
 
 .icon-svg {
