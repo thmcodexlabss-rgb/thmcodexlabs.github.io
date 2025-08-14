@@ -954,6 +954,59 @@ button.thm-button:hover::before {
   .accordion-content.open {
     max-height: 500px;
   }
+}@media (max-width: 768px) {
+  .thm-cards {
+    display: block; /* grid gizlendi, accordion gösterilecek */
+  }
+
+  .accordion-container {
+    display: block;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .accordion-item {
+    background: #222;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .accordion-btn {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 1.2rem;
+  }
+
+  .accordion-content {
+    max-height: none; /* içerik taşarsa göster */
+    padding: 15px 20px;
+  }
+
+  .accordion-content ul li {
+    font-size: 1rem;
+    padding-left: 0;
+  }
+}
+@media (max-width: 360px) {
+  .thm-card {
+    padding: 15px 10px 25px;
+    max-height: none; /* yüksekliği otomatik */
+    overflow-y: visible; /* içerik taşarsa kaydır */
+  }
+
+  .thm-card-title {
+    font-size: 1.2rem;
+  }
+
+  .thm-card-list li {
+    font-size: 0.95rem;
+  }
+
+  button.thm-button {
+    font-size: 14px;
+    padding: 0.7rem 1.5rem;
+  }
 }
 
 /* --- MASAÜSTÜ VE BÜYÜK EKRANLAR İÇİN KART GÖRÜNÜR --- */
