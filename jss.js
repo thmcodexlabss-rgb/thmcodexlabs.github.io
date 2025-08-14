@@ -283,33 +283,42 @@ window.addEventListener("resize", () => {
     overlay.style.display = "none";
   }
 });
-// Accordion butonları için toggle fonksiyonu
-document.querySelectorAll(".accordion-btn").forEach(button => {
-  button.addEventListener("click", () => {
-    const expanded = button.getAttribute("aria-expanded") === "true";
-    button.setAttribute("aria-expanded", !expanded);
-
-    const content = button.nextElementSibling;
-    if (!expanded) {
-      content.classList.add("open");
-    } else {
-      content.classList.remove("open");
-    }
-  });
-});
-
-// Responsive olarak görünürlük değişimi (isteğe bağlı)
-function updateView() {
+document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelector(".thm-cards");
   const accordion = document.querySelector(".accordion-container");
-  if (window.innerWidth <= 768) {
-    cards.style.display = "none";
-    accordion.style.display = "block";
-  } else {
-    cards.style.display = "grid";
-    accordion.style.display = "none";
-  }
-}
 
-window.addEventListener("load", updateView);
-window.addEventListener("resize", updateView);
+  // Accordion click eventi
+  document.querySelectorAll(".accordion-btn").forEach(button => {
+    button.addEventListener("click", () => {
+      const expanded = button.getAttribute("aria-expanded") === "true";
+      button.setAttribute("aria-expanded", !expanded);
+
+      const content = button.nextElementSibling;
+      if (!expanded) {
+        content.classList.add("open");
+      } else {
+        content.classList.remove("open");
+      }
+    });
+  });
+
+  // Responsive görünüm
+  function updateView() {
+    if (!cards || !accordion) return; // DOM kontrolü
+
+    if (window.innerWidth <= 768) {
+      cards.style.display = "none";
+      accordion.style.display = "block";
+    } else {
+      cards.style.display = "grid";
+      accordion.style.display = "none";
+    }
+  }
+
+  window.addEventListener("load", updateView);
+  window.addEventListener("resize", updateView);
+});
+
+
+
+
