@@ -277,39 +277,30 @@ overlay.addEventListener("click", e => {
   if (e.target === overlay) overlay.style.display = "none";
 });
 
-// Responsive için pencere boyutu değişirse açılır pencere kapanabilir (isteğe bağlı)
-window.addEventListener("resize", () => {
-  if (window.innerWidth > 1024) {
-    overlay.style.display = "none";
-  }
-});
-// Accordion butonları için toggle fonksiyonu
-document.querySelectorAll(".accordion-btn").forEach(button => {
-  button.addEventListener("click", () => {
-    const expanded = button.getAttribute("aria-expanded") === "true";
-    button.setAttribute("aria-expanded", !expanded);
+document.addEventListener('DOMContentLoaded', () => {
+  const accordions = document.querySelectorAll('.accordion-btn');
 
-    const content = button.nextElementSibling;
-    if (!expanded) {
-      content.classList.add("open");
-    } else {
-      content.classList.remove("open");
-    }
+  accordions.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const content = btn.nextElementSibling;
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+
+      // Tüm accordion'ları kapat (isteğe bağlı)
+      accordions.forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        b.nextElementSibling.classList.remove('open');
+      });
+
+      // Bu buton aç/kapa
+      if (!expanded) {
+        btn.setAttribute('aria-expanded', 'true');
+        content.classList.add('open');
+      } else {
+        btn.setAttribute('aria-expanded', 'false');
+        content.classList.remove('open');
+      }
+    });
   });
 });
+stener("resize", updateView);
 
-// Responsive olarak görünürlük değişimi (isteğe bağlı)
-function updateView() {
-  const cards = document.querySelector(".thm-cards");
-  const accordion = document.querySelector(".accordion-container");
-  if (window.innerWidth <= 768) {
-    cards.style.display = "none";
-    accordion.style.display = "block";
-  } else {
-    cards.style.display = "grid";
-    accordion.style.display = "none";
-  }
-}
-
-window.addEventListener("load", updateView);
-window.addEventListener("resize", updateView);
