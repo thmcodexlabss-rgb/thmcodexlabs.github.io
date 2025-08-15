@@ -754,10 +754,9 @@ body.thm-body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
-  margin-top: 750px;
-  /* İstersen kaldırabilir veya değiştirebilirsin */
 }
 
+/* Bölüm */
 #thm-neler-yapabiliriz {
   max-width: 1100px;
   margin: 50px auto;
@@ -774,13 +773,13 @@ body.thm-body {
   font-family: 'Press Start 2P', monospace;
 }
 
+/* Kartlar */
 .thm-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 20px;
 }
 
-/* Kart stili */
 .thm-card {
   backdrop-filter: blur(10px);
   border-radius: 15px;
@@ -804,7 +803,6 @@ body.thm-body {
 .thm-card-title {
   font-size: 1.8rem;
   margin-bottom: 15px;
-  color: #ffffff;
 }
 
 .thm-card-list {
@@ -828,18 +826,15 @@ body.thm-body {
   position: absolute;
   left: 0;
   top: 2px;
-  color: #ffffff;
   font-weight: bold;
 }
 
-/* Buton stili */
+/* Buton */
 button.thm-button {
   outline: none;
   cursor: pointer;
   border: none;
   padding: 0.9rem 2rem;
-  margin: 0 auto;
-  font-family: inherit;
   font-size: 17px;
   position: relative;
   display: inline-block;
@@ -863,21 +858,14 @@ button.thm-button:hover span {
   color: black;
 }
 
-button.thm-button::before,
-button.thm-button::after {
+button.thm-button::before {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  content: "";
-}
-
-button.thm-button::before {
-  background: #000;
-  width: 120%;
   left: -10%;
+  width: 120%;
+  height: 100%;
+  content: "";
+  background: #000;
   transform: skew(30deg);
   transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
 }
@@ -886,28 +874,11 @@ button.thm-button:hover::before {
   transform: translate3d(100%, 0, 0);
 }
 
-/* Responsive Düzenlemeler */
-
-/* --- MOBİLDE ACORDİON GÖSTER, KARTLARI GİZLE --- */
+/* Mobil - Accordion */
 @media (max-width: 768px) {
-  .thm-cards {
-    display: none;
-    /* Kartlar gizlenir */
-  }
-
-  .accordion-container {
-    display: block;
-    max-width: 90%;
-    margin: 0 auto;
-  }
-
-  .accordion-item {
-    background: #222;
-    margin-bottom: 10px;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-
+  .thm-cards { display: none; }
+  .accordion-container { display: block; max-width: 90%; margin: 0 auto; }
+  .accordion-item { background: #222; margin-bottom: 10px; border-radius: 10px; overflow: hidden; }
   .accordion-btn {
     width: 100%;
     text-align: left;
@@ -916,257 +887,45 @@ button.thm-button:hover::before {
     color: #fff;
     font-size: 1.3rem;
     border: none;
-    outline: none;
     cursor: pointer;
-    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-
-  .accordion-btn .icon {
-    font-size: 1.5rem;
-    transition: transform 0.3s ease;
-  }
-
-  .accordion-btn[aria-expanded="true"] .icon {
-    transform: rotate(45deg);
-  }
-
-  .accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.9s ease;
-    background: #222;
-    padding: 0 25px;
-  }
-
-  .accordion-content ul {
-    padding: 15px 0;
-    margin: 0;
-    list-style: none;
-    color: #ddd;
-  }
-
-  .accordion-content ul li {
-    padding-left: 0;
-    margin-bottom: 10px;
-  }
-
-  .accordion-content.open {
-    max-height: 500px;
-  }
+  .accordion-btn .icon { font-size: 1.5rem; transition: transform 0.3s ease; }
+  .accordion-btn[aria-expanded="true"] .icon { transform: rotate(45deg); }
+  .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.9s ease; background: #222; padding: 0 25px; }
+  .accordion-content ul { padding: 15px 0; margin: 0; list-style: none; color: #ddd; }
+  .accordion-content.open { max-height: 500px; }
 }
 
-/* --- MASAÜSTÜ VE BÜYÜK EKRANLAR İÇİN KART GÖRÜNÜR --- */
-@media (min-width: 769px) {
-
-  /* Başlığı ortala */
-  #thm-neler-yapabiliriz.thm-section-title {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    /* Eğer inline-block ise, block yap */
-  }
-}
-
-
-/* Diğer responsive kodlarınızı aşağıya koruyarak ekleyebilirsiniz */
-
-/* Responsive Düzenlemeler */
-
-/* Çok küçük cihazlar (320px ve altı) */
+/* Responsive */
 @media (max-width: 320px) {
-  #thm-neler-yapabiliriz {
-    margin: 20px 10px;
-    padding: 0 10px;
-  }
-
-  .thm-section-title {
-    font-size: 1.8rem;
-    margin-bottom: 25px;
-    border-bottom-width: 2px;
-  }
-
-  .thm-cards {
-    grid-template-columns: 1fr;
-    /* Tek sütun */
-    gap: 15px;
-  }
-
-  .thm-card {
-    padding: 20px 15px 30px;
-    max-height: 400px;
-    /* Maksimum yükseklik */
-    overflow-y: auto;
-    /* Taşarsa kaydır */
-  }
-
-  .thm-card-title {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-  }
-
-  .thm-card-list li {
-    font-size: 1rem;
-    padding-left: 20px;
-  }
-
-  button.thm-button {
-    font-size: 14px;
-    padding: 0.75rem 1.5rem;
-    border-radius: 400px;
-  }
+  .thm-section-title { font-size: 1.8rem; margin-bottom: 25px; }
+  .thm-cards { grid-template-columns: 1fr; gap: 15px; }
+  .thm-card { padding: 20px 15px 30px; max-height: 400px; overflow-y: auto; }
+  .thm-card-title { font-size: 1.3rem; }
 }
 
-/* Küçük telefonlar (321px - 480px) */
 @media (min-width: 321px) and (max-width: 480px) {
-  #thm-neler-yapabiliriz {
-    margin: 30px 15px;
-    padding: 0 15px;
-  }
-
-  .thm-section-title {
-    font-size: 2.1rem;
-    margin-bottom: 30px;
-  }
-
-  .thm-cards {
-    grid-template-columns: 1fr;
-    /* Tek sütun */
-    gap: 18px;
-  }
-
-  .thm-card {
-    padding: 20px 15px 35px;
-    max-height: 420px;
-    /* Biraz daha yüksek */
-    overflow-y: auto;
-  }
-
-  .thm-card-title {
-    font-size: 1.4rem;
-  }
-
-  .thm-card-list li {
-    font-size: 1.05rem;
-    padding-left: 22px;
-  }
-
-  button.thm-button {
-    font-size: 15px;
-    padding: 0.8rem 1.8rem;
-  }
+  .thm-section-title { font-size: 2.1rem; margin-bottom: 30px; }
+  .thm-cards { grid-template-columns: 1fr; gap: 18px; }
 }
 
-/* Tablet ve küçük dizüstü (481px - 768px) */
 @media (min-width: 481px) and (max-width: 768px) {
-  #thm-neler-yapabiliriz {
-    margin: 40px 20px;
-    padding: 0 20px;
-  }
-
-  .thm-section-title {
-    font-size: 2.4rem;
-    margin-bottom: 35px;
-  }
-
-  .thm-cards {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  .thm-card {
-    padding: 25px 20px 35px;
-  }
-
-  .thm-card-title {
-    font-size: 1.6rem;
-  }
-
-  .thm-card-list li {
-    font-size: 1.1rem;
-    padding-left: 25px;
-  }
-
-  button.thm-button {
-    font-size: 16px;
-    padding: 0.85rem 2rem;
-  }
+  .thm-section-title { font-size: 2.4rem; margin-bottom: 35px; }
+  .thm-cards { grid-template-columns: repeat(2, 1fr); gap: 20px; }
 }
 
-/* Küçük masaüstü ve büyük tablet (769px - 992px) */
 @media (min-width: 769px) and (max-width: 992px) {
-  #thm-neler-yapabiliriz {
-    margin: 50px auto;
-    padding: 0 30px;
-  }
-
-  .thm-section-title {
-    font-size: 2.6rem;
-    margin-bottom: 38px;
-  }
-
-  .thm-cards {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    margin-top: 60px;
-  }
-
-  .thm-card-title {
-    font-size: 1.7rem;
-  }
-
-  .thm-card-list li {
-    font-size: 1.15rem;
-  }
-
-  button.thm-button {
-    font-size: 17px;
-    padding: 0.9rem 2rem;
-  }
+  .thm-section-title { font-size: 2.6rem; margin-bottom: 38px; }
+  .thm-cards { grid-template-columns: repeat(3, 1fr); gap: 25px; }
 }
 
-/* Büyük ekranlar (993px ve üzeri) */
 @media (min-width: 993px) {
-  #thm-neler-yapabiliriz {
-    max-width: 90%;
-    margin: 30px auto 60px;
-    padding: 0 10px;
-    text-align: center;
-  }
-
-  .thm-section-title {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    border-bottom-width: 2px;
-  }
-
-  .thm-cards {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-  }
-
-  .thm-card {
-    padding: 25px 20px 40px;
-    margin: 0 auto;
-    max-width: 100%;
-  }
-
-  .thm-card-title {
-    font-size: 1.8rem;
-  }
-
-  .thm-card-list li {
-    font-size: 1.1rem;
-    padding-left: 25px;
-  }
-
-  button.thm-button {
-    font-size: 17px;
-    padding: 0.9rem 2rem;
-  }
+  #thm-neler-yapabiliriz { max-width: 90%; margin: 30px auto 60px; }
+  .thm-section-title { font-size: 2rem; margin-bottom: 30px; }
+  .thm-cards { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
 }
 
 
