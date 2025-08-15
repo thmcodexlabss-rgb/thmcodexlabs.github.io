@@ -758,12 +758,14 @@ body.thm-body {
 
 /* Bölüm */
 #thm-neler-yapabiliriz {
-    font-size: 2.4rem;
-  max-width: 1100px;
-  margin: 50px auto;
-  padding: 0 20px;
-  text-align: center; /* Başlığı ortalar */
+    font-size: 2rem; /* Mobil için daha uygun bir boyut */
+    max-width: 95%;   /* Kenarlardan taşmayı önler */
+    margin: 50px auto 30px;
+    padding: 0 10px;  /* Sağ-sol boşluk */
+    text-align: center;
+    word-wrap: break-word; /* Uzun kelimeleri kır */
 }
+
 
 .thm-section-title {
  
@@ -908,6 +910,12 @@ button.thm-button:hover::before {
   .thm-card { padding: 20px 15px 30px; max-height: 400px; overflow-y: auto; }
   .thm-card-title { font-size: 1.3rem; }
 }
+@media (max-width: 480px) {
+    #thm-neler-yapabiliriz {
+        font-size: 1.6rem;
+        margin-bottom: 25px;
+    }
+}
 
 @media (min-width: 321px) and (max-width: 480px) {
   .thm-section-title { font-size: 2.1rem; margin-bottom: 30px; }
@@ -916,12 +924,12 @@ button.thm-button:hover::before {
 
 @media (min-width: 481px) and (max-width: 768px) {
  
-  #thm-neler-yapabiliriz { font-size: 1rem; margin-bottom: 35px; }
+  #thm-neler-yapabiliriz { font-size: 1.5rem; margin-bottom: 35px; }
   .thm-cards { grid-template-columns: repeat(2, 1fr); gap: 20px; }
 }
 
 @media (min-width: 769px) and (max-width: 992px) {
-  .thm-section-title { font-size: 1.6rem; margin-bottom: 38px; }
+  .thm-section-title { font-size: 2.6rem; margin-bottom: 38px; }
   .thm-cards { grid-template-columns: repeat(3, 1fr); gap: 25px; }
 }
 
