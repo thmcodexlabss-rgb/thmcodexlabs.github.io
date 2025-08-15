@@ -914,7 +914,7 @@ button.thm-button:hover::before {
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
-  .thm-section-title { font-size: 1rem; margin-bottom: 35px; }
+  .thm-section-title { font-size: 14px; margin-bottom: 35px; }
   .thm-cards { grid-template-columns: repeat(2, 1fr); gap: 20px; }
 }
 
@@ -1615,7 +1615,7 @@ h2.section-title {
 
 
 
-/* hakkımızda  */
+/* Hakkımızda */
 .about-section {
   display: flex;
   justify-content: space-between;
@@ -1623,7 +1623,6 @@ h2.section-title {
   max-width: 1100px;
   margin: 80px auto;
   padding: 40px 30px;
-
   border-radius: 20px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
   gap: 60px;
@@ -1632,8 +1631,6 @@ h2.section-title {
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-
-
 /* Sol taraf: Metin alanı */
 .about-text {
   flex: 1.4;
@@ -1641,7 +1638,7 @@ h2.section-title {
 }
 
 .about-text h2 {
-  font-size: 2.8rem;
+  font-size: 2.4rem; /* Başlığı biraz küçülttüm */
   font-weight: 700;
   margin-bottom: 18px;
   color: #ffffff;
@@ -1649,22 +1646,23 @@ h2.section-title {
   position: relative;
   padding-bottom: 12px;
   font-family: 'Press Start 2P', monospace;
+  text-align: left;
 }
 
 .about-text h2::after {
-  content: '';
+
   position: absolute;
   bottom: 0;
   left: 0;
   width: 70px;
   height: 5px;
-
   border-radius: 3px;
+  background-color: #ffffff;
 }
 
 .about-text p {
-  font-size: 1.15rem;
-  line-height: 1.7;
+  font-size: 1.1rem;
+  line-height: 1.6;
   color: #ffffff;
   font-weight: 500;
   margin-top: 12px;
@@ -1682,7 +1680,6 @@ h2.section-title {
   width: 100%;
   max-width: 320px;
   border-radius: 18px;
-
   transition: transform 0.3s ease;
   object-fit: contain;
 }
@@ -1691,30 +1688,94 @@ h2.section-title {
   transform: scale(1.05) rotate(1.5deg);
 }
 
-/* Responsive */
-@media (max-width: 900px) {
+/* --- Responsive Düzenlemeler --- */
+
+/* Tablet ve küçük dizüstü (max-width: 992px) */
+@media (max-width: 992px) {
   .about-section {
     flex-direction: column;
     text-align: center;
-    padding: 30px 20px;
-  }
-
-  .about-text {
-    max-width: 100%;
+    padding: 35px 25px;
+    gap: 40px;
   }
 
   .about-text h2 {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .about-text p {
+    font-size: 1rem;
   }
 
   .about-image {
-    margin-top: 30px;
     justify-content: center;
+    margin-top: 25px;
     width: 100%;
   }
 
   .about-image img {
-    max-width: 240px;
+    max-width: 260px;
+  }
+}
+
+/* Tablet ve küçük telefonlar (max-width: 768px) */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 30px 20px;
+    gap: 30px;
+  }
+
+  .about-text h2 {
+    font-size: 1rem;
+  }
+
+  .about-text p {
+    font-size: 0.95rem;
+  }
+
+  .about-image img {
+    max-width: 220px;
+  }
+}
+
+/* Küçük telefonlar (max-width: 480px) */
+@media (max-width: 480px) {
+  .about-section {
+    padding: 20px 15px;
+    gap: 20px;
+  }
+
+  .about-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .about-text p {
+    font-size: 0.9rem;
+  }
+
+  .about-image img {
+    max-width: 180px;
+  }
+}
+
+/* Çok küçük cihazlar (max-width: 320px) */
+@media (max-width: 320px) {
+  .about-section {
+    padding: 15px 10px;
+    gap: 15px;
+  }
+
+  .about-text h2 {
+    font-size: 1.6rem;
+  }
+
+  .about-text p {
+    font-size: 0.85rem;
+  }
+
+  .about-image img {
+    max-width: 150px;
   }
 }
 
