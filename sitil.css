@@ -761,17 +761,18 @@ body.thm-body {
   max-width: 1100px;
   margin: 50px auto;
   padding: 0 20px;
-  text-align: center;
+  text-align: center; /* Başlığı ortalar */
 }
 
 .thm-section-title {
   font-size: 2.8rem;
   color: #fefefe;
-  margin-bottom: 40px;
+  margin: 0 auto 40px; /* Üst:0, alt:40px, otomatik yatay ortalama */
   padding-bottom: 8px;
-  display: inline-block;
+  display: block; /* inline-block yerine block kullan, margin auto çalışır */
   font-family: 'Press Start 2P', monospace;
 }
+
 
 /* Kartlar */
 .thm-cards {
@@ -913,7 +914,7 @@ button.thm-button:hover::before {
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
-  .thm-section-title { font-size: 2.4rem; margin-bottom: 35px; }
+  .thm-section-title { font-size: 1.8rem; margin-bottom: 35px; }
   .thm-cards { grid-template-columns: repeat(2, 1fr); gap: 20px; }
 }
 
