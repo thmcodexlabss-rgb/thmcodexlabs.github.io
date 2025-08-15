@@ -758,6 +758,7 @@ body.thm-body {
 
 /* Bölüm */
 #thm-neler-yapabiliriz {
+    font-size: 1.8rem;
   max-width: 1100px;
   margin: 50px auto;
   padding: 0 20px;
