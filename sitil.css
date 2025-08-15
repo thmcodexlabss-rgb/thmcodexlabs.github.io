@@ -915,7 +915,8 @@ button.thm-button:hover::before {
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
-  .thm-section-title { font-size: 0.1px; margin-bottom: 35px; }
+    #thm-neler-yapabiliriz { max-width: 100%; margin: 30px auto 60px; }
+  #thm-neler-yapabiliriz { font-size: 1rem; margin-bottom: 35px; }
   .thm-cards { grid-template-columns: repeat(2, 1fr); gap: 20px; }
 }
 
